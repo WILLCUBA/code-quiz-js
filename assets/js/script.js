@@ -1,11 +1,13 @@
 //DOM elements
-var questionContainerEl = $("#question-container")
-var questionTitleEl = $("#question-title")
-var olOfChoicesEl = $("#choices")
+var bodyEl = document.querySelector("body")
 
-var questionIndex = 0
-var score = 0
-var time = 0
+
+var questionContainerEl = document.getElementById("question-container")
+var questionTitleEl = document.getElementById("question-title")
+var choicesContainerEl = document.getElementById("choices-container")
+var feedbackEl = document.getElementById("feedback")
+var questionIndex = -1
+var time = 1
 
 var questions = [
     {
@@ -33,11 +35,52 @@ var questions = [
         choices: ["Javascript", "terminal / bash", "for loops", "console log"],
         answer: "console log"
     },
-
 ];
 
 
 //create a function to render the question
 
-//create a function to check the answer
+
+var renderQuestion = function(obj) {
+    questionTitleEl.innerHTML = obj.title;
+    for (i = 0; i < obj.choices.length;i++) {
+        var choiceLiEL = document.querySelector("li")
+        choiceLiEL.textContent = obj.choices[i]
+        choicesContainerEl.appendChild(choiceLiEL)
+    }
+    return
+}
+
+var answerChecker = function(e) {
+    element = e.target;
+    if (element.textContent === questions[questionIndex].answer) {
+        console.log("correct")
+        feedbackEl.textContent = "Correct"
+        if(nextQuestion) {
+            nextQuestion()
+        }
+    } else if (element.textContent != questions[questionIndex].answer) {
+        console.log("incorrect")
+        feedbackEl.textContent = "Incorrect"
+        if(nextQuestion) {
+            nextQuestion()
+        }
+    }
+    return
+}
+
+var nextQuestion = function() {
+    if (questionIndex === questions.length) {
+        console.log("yes")
+        return false
+    }
+    questionIndex++
+    renderQuestion(questions[questionIndex])
+    return true
+}
+
+nextQuestion()
+
+
+choicesContainerEl.addEventListener("click", answerChecker)
 
