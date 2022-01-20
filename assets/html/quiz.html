@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Code Quiz || Quiz</title>
 </head>
-<body>
+<body>  
     <div class="time">
         <p id="time-text"></p>
     </div>
@@ -19,10 +19,16 @@
             <li id="2"></li>
             <li id="3"></li>
             <li id="4"></li>
-        </div>
-        <p id="feedback"></p>   
+        </ol>      
+        <p id="feedback"></p>
     </div>
-    
+    <section id="all-done">
+        <h1>All done!</h1>
+        <p>Your final score is <span id="score"></span></p>
+        <label for="enter-initial">Eneter initials: </label>
+        <input type="text" id="enter-initials">
+        <button type="submit" id="submit-initials">Submit</button>
+    </section>
     <script src="../js/script.js"></script>
 </body>
 </html>
