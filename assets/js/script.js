@@ -1,14 +1,5 @@
 //DOM elements
 var bodyEl = document.querySelector("body")
-
-
-var questionContainerEl = document.getElementById("question-container")
-var questionTitleEl = document.getElementById("question-title")
-var choicesContainerEl = document.getElementById("choices-container")
-var feedbackEl = document.getElementById("feedback")
-var questionIndex = 0;
-var time = 1;
-
 const questions = [
     {
         title: "Commonly used data types DO NOT include:",
@@ -36,11 +27,34 @@ const questions = [
         answer: "console log"
     },
 ];
+var questionContainerEl = document.getElementById("question-container")
+var questionTitleEl = document.getElementById("question-title")
+var choicesContainerEl = document.getElementById("choices-container")
+var feedbackEl = document.getElementById("feedback")
+var questionIndex = 0;
+var time = 0;
+var timeEl = document.getElementById("time-text");
+time = questions.length*15
+score = 0
+gameOver = false;
 
+//function timer
+var timer = function() {
+    var timer = setInterval(function(){
+        timeEl.textContent = time;
+        time--
+        if (time === 0) {
+            console.log("game over")
+            gameOver = true;
+            localStorage.setItem("score",score)
+        }
+    },1000)
+    
+}
 
-
+//start quiz function
 var startQuiz = function() {
-    console.log(questions[questionIndex])
+    timer()
     if(questionIndex === 0) {
         renderQuestion(questions[questionIndex])
     }
@@ -58,28 +72,29 @@ var renderQuestion = function(obj) {
     return
 }
 
+//check if answer is correct
 var answerChecker = function(e) {
     element = e.target;
     if (element.textContent === questions[questionIndex].answer) {
         console.log("correct")
         feedbackEl.textContent = "Correct"
     } else if (element.textContent != questions[questionIndex].answer) {
-        console.log("incorrect")
+        time -= 10;
         feedbackEl.textContent = "Incorrect"
     }
     questionIndex++
     if(questionIndex < questions.length) {
         renderQuestion(questions[questionIndex])
     } else {
-        alert("no more questions")
+        score = time;
+        gameOver = true
+        localStorage.setItem("score",score)
+        window.location.href = "highscores.html"
     }
-
     return
 }
 
+
 startQuiz()
-
-
-
 choicesContainerEl.addEventListener("click", answerChecker)
 
