@@ -6,10 +6,10 @@ var questionContainerEl = document.getElementById("question-container")
 var questionTitleEl = document.getElementById("question-title")
 var choicesContainerEl = document.getElementById("choices-container")
 var feedbackEl = document.getElementById("feedback")
-var questionIndex = -1
-var time = 1
+var questionIndex = 0;
+var time = 1;
 
-var questions = [
+const questions = [
     {
         title: "Commonly used data types DO NOT include:",
         choices: ["strings", "booleans", "alerts", "numbers"],
@@ -38,9 +38,16 @@ var questions = [
 ];
 
 
+
+var startQuiz = function() {
+    console.log(questions[questionIndex])
+    if(questionIndex === 0) {
+        renderQuestion(questions[questionIndex])
+    }
+    return
+}
+
 //create a function to render the question
-
-
 var renderQuestion = function(obj) {
     questionTitleEl.innerHTML = obj.title;
     for (i = 0; i < obj.choices.length;i++) {
@@ -56,30 +63,22 @@ var answerChecker = function(e) {
     if (element.textContent === questions[questionIndex].answer) {
         console.log("correct")
         feedbackEl.textContent = "Correct"
-        if(nextQuestion) {
-            nextQuestion()
-        }
     } else if (element.textContent != questions[questionIndex].answer) {
         console.log("incorrect")
         feedbackEl.textContent = "Incorrect"
-        if(nextQuestion) {
-            nextQuestion()
-        }
     }
+    questionIndex++
+    if(questionIndex < questions.length) {
+        renderQuestion(questions[questionIndex])
+    } else {
+        alert("no more questions")
+    }
+
     return
 }
 
-var nextQuestion = function() {
-    if (questionIndex === questions.length) {
-        console.log("yes")
-        return false
-    }
-    questionIndex++
-    renderQuestion(questions[questionIndex])
-    return true
-}
+startQuiz()
 
-nextQuestion()
 
 
 choicesContainerEl.addEventListener("click", answerChecker)
