@@ -4,19 +4,14 @@ var olScoresEl = document.getElementById("scores-container")
 var btnClear = document.getElementById("clear")
 var scores = []
 
-
-
-var appendScores = function(scores) {
-    var textToShowScores = " " + initials + "- " + score;
-    scores.push(textToShowScores)
-    for (let i = 0; i < scores.length; i++) {
-        var liScoreEl = document.createElement("li")
-        liScoreEl.textContent = textToShowScores;
-        olScoresEl.appendChild(liScoreEl)
-    }
+var appendScores = function() {
+    var textToShowScores = "1." + initials + " - " + score;
+    var liScoreEl = document.createElement("li")
+    liScoreEl.textContent = textToShowScores;
+    olScoresEl.appendChild(liScoreEl)
 }
 
-appendScores(scores)
+appendScores()
 
 var removeChildNodes = function(parent) {
     while(parent.firstChild) {

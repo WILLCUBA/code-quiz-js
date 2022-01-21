@@ -15,7 +15,7 @@ a {
     background-color: skyblue;
     margin: 0 auto;
     margin-top: 15px;
-    width: 50%;
+    width: 80%;
     font-size: 20px;
     color: white;
     border-radius: 15px;
@@ -58,7 +58,7 @@ a {
     font-size: 20px;
     padding: 10px;
     border: 1px solid black;
-    width: 10%;
+    width: 50%;
     background-color: skyblue;
     margin: 0 auto;
 }
@@ -75,7 +75,7 @@ a {
 }
 
 .btn-sbmt-score { 
-    width: 10%;
+    width: 20%;
     padding: 5px;
 }
 
@@ -83,6 +83,12 @@ a {
     height: 30px;
     font-size: 20px;
 }
+
+#feedback {
+    font-size: 30px;
+    color: rgba(120,120,120,0.8);
+}
+
 
 /*Highscores*/
 

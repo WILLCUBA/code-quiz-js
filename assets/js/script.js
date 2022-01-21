@@ -117,7 +117,7 @@ btnSubmitInitialsEl.addEventListener("click",function(event) {
     event.preventDefault()
     var userInitials = ""
     userInitials = initialInputEl.value;
-    localStorage.setItem("User Initials",userInitials)
+    localStorage.setItem("User Initials", userInitials)
     window.location.href = "highscores.html"
 })
 startQuiz()
