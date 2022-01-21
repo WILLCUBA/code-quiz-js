@@ -13,3 +13,4 @@ To install this application, you will need a text editor. I recommend Visual Stu
 
 ## Link to the deployed app
 
+https://willcuba.github.io/code-quiz-js/
