@@ -51,8 +51,8 @@ var timer = function() {
         time--
         if (time < 0) {
             clearInterval(timer)
-            console.log("game over")
-            gameOver = true;
+            score = 0;
+            showAllDone()
             localStorage.setItem("score",score)
         }
     },1000)
