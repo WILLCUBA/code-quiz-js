@@ -8,4 +8,8 @@ To install this application, you will need a text editor. I recommend Visual Stu
 
 ## Screenshot
 
+![04-web-apis-homework-demo](https://user-images.githubusercontent.com/51419545/150461718-820b1fc9-00bf-4ef7-938e-3164be5aa207.gif)
+
+
 ## Link to the deployed app
+
