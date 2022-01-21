@@ -3,5 +3,5 @@ This is a quiz application using HTML, CSS, and Javascript. This application emp
 
 This project has been deployed to GitHub Pages. To get this project up and running, you can follow the deployment link. Or, download the sources files to use this as a template.
 
-##Prerequisites
+## Prerequisites
 To install this application, you will need a text editor. I recommend Visual Studio Code.
