@@ -5,3 +5,7 @@ This project has been deployed to GitHub Pages. To get this project up and runni
 
 ## Prerequisites
 To install this application, you will need a text editor. I recommend Visual Studio Code.
+
+## Screenshot
+
+## Link to the deployed app
